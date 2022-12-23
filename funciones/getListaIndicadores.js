@@ -9,7 +9,7 @@ function getListaIndicadores(seleccion) {
     urlSufj: '&lang=es&format=json&in=1&app=dashboard'},
   {id: '3159',
     name: 'Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global',
-    urlBase: 'http://api-cepalstat.cepal.org/cepalstat/api/v1/indicator/3159/data?',
+    urlBase: 'https://api-cepalstat.cepal.org/cepalstat/api/v1/indicator/3159/data?',
     urlDim1: ',85390,29160,29161,29162,29163,29164,29165,29166,29167,29168,29169,29170,29171,29172,29173,29174,29175,29176,29177,29178,29179,29180,29181,29182,29183,29184,29185,29186,29187,29188,29189',
     urlSufj: '&lang=es&format=json&in=1&app=dashboard'},
   {id: '3351',
