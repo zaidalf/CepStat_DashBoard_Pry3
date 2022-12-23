@@ -20,23 +20,23 @@ await getCepalStatData(url);
 console.log(`Periodos: ${arrayPeriodos}`);
 console.log(`Valores: ${arrayValores}`);
 // ...
-// async function chartCepalStat() {
-//   await getCepalStatData(url);
-//   console.log(`Periodos: ${arrayPeriodos}`);
-//   console.log(`Valores: ${arrayValores}`);
-//   const ctx = document.getElementById('geiChart');
-//   const myChart = new Chart(ctx, {
-//       type: 'line',
-//       data: {
-//           labels: arrayPeriodos,
-//           datasets: [{
-//               label: 'Evolución de las emisiones de dióxido de carbono (CO2) con respecto al total global',
-//               data: arrayValores,
-//               backgroundColor: 'rgba(255, 99, 132, 0.2)',
-//           }]
-//       },
-//   })
-// }
-// chartCepalStat();
+async function chartCepalStat() {
+  await getCepalStatData(url);
+  console.log(`Periodos: ${arrayPeriodos}`);
+  console.log(`Valores: ${arrayValores}`);
+  const ctx = document.getElementById('geiChart');
+  const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: arrayPeriodos,
+          datasets: [{
+              label: 'Evolución de las emisiones de dióxido de carbono (CO2) con respecto al total global',
+              data: arrayValores,
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          }]
+      },
+  })
+}
+chartCepalStat();
 // ...
 
