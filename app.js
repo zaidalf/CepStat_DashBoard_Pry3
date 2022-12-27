@@ -9,7 +9,7 @@ const paisArray = getListaPaises('todos');
 console.log(`Lista de Paises: ${paisArray}`);
 // Para armar lista desplegable de paise en el HTML
 // ...
-let htmlPais = '224'; // Chile
+let htmlPais = '216'; // Pais
 let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
 const indicadorObj = getListaIndicadores(htmlIndicador); // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
 const paisObj = getListaPaises(htmlPais); // Chile
@@ -19,31 +19,25 @@ url += indicadorObj[0].urlDim1;
 url += indicadorObj[0].urlSufj;
 console.log(`URL: ${url}`);
 // ...
-// await getCepalStatData(url);
-// console.log(`Periodos: ${arrayPeriodos}`);
-// console.log(`Valores: ${arrayValores}`);
-// ...
 async function chartCepalStat() {
   await getCepalStatData(url);
-  // console.log(`Periodos: ${arrayPeriodos}`);
-  // console.log(`Valores: ${arrayValores}`);
   const ctx = document.getElementById('geiChart');
   const myChart = new Chart(ctx, {
       type: 'line',
       data: {
           labels: arrayPeriodos,
           datasets: [{
-            label: 'Evolución de las emisiones de dióxido de carbono (CO2) con respecto al total global',
+            label: `${indicadorObj[0].name} - ${paisObj[0].name}`,
             data: arrayValores,
-            backgroundColor: 'rgba(0, 0, 179)',
-            borderColor: 'rgba(75, 192, 192)',
+            backgroundColor: paisObj[0].bgColor,
+            borderColor: paisObj[0].bdColor,
           }],
       },
       options: {
           scales: {
             y: {
               suggestedMin: 0.0,
-              suggestedMax: .5,
+              suggestedMax: 2.0,
             }
             
               // yAxes: [{
