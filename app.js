@@ -4,14 +4,17 @@ import {getListaIndicadores} from './funciones/getListaIndicadores.js';
 import {getListaPaises} from './funciones/getListaPaises.js';
 import {getCepalStatData, arrayPeriodos, arrayValores} from './funciones/getCepalStatData.js';
 console.log('CepalStat Paso1');
+// ...
 const paisArray = getListaPaises('todos');
 console.log(`Lista de Paises: ${paisArray}`);
 // Para armar lista desplegable de paise en el HTML
 // ...
-const indicadorObj = getListaIndicadores('3159'); // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
-const paisObj = getListaPaises('224'); // Chile
+let htmlPais = '224'; // Chile
+let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
+const indicadorObj = getListaIndicadores(htmlIndicador); // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
+const paisObj = getListaPaises(htmlPais); // Chile
 let url = indicadorObj[0].urlBase;
-url += paisObj[0].id;
+url += `members= ${paisObj[0].id}`;
 url += indicadorObj[0].urlDim1;
 url += indicadorObj[0].urlSufj;
 console.log(`URL: ${url}`);
@@ -39,9 +42,10 @@ async function chartCepalStat() {
       options: {
           scales: {
             y: {
-              suggestedMin: 0,
-              suggestedMax: 2,
+              suggestedMin: 0.0,
+              suggestedMax: .5,
             }
+            
               // yAxes: [{
               //     display: true,
               //     ticks: {
