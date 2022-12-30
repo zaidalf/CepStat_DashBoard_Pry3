@@ -18,7 +18,7 @@ function getListaPaises(seleccion) {
       let paises = paisesArray;
       return paises;
   } else {
-      let paises = paisesArray.filter((pais) => pais.id === seleccion);
+      let paises = paisesArray.filter((pais) => pais.name === seleccion);
       return paises;
   }
 } 
