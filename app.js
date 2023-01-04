@@ -5,13 +5,19 @@ import {getCepalStatData, arrayPeriodos, arrayValores} from './funciones/getCepa
 // ...
 // Captura de datos desde html - Diana
 // . Se debe obtener la variable htmlPais con el nombre del pais
+// . let htmlPais = ..........; // Pais
 // . Se debe obtener el periodo del gráfico en un rango de fechas entre 1990 y 2019 
 // . Variables periodoInicio y periodoFinal
+// . let htmlPeriodoInicio = .....; // Periodo Inicio
+// . let htmlPeriodoFinal = .....; // Periodo Final
+// . Tipo de grafico
+// . 
 // ...
 let htmlPais = 'Brasil'; // Pais
 let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
 let htmlPeriodoInicio = '2005'; // Periodo Inicio
 let htmlPeriodoFinal = '2019'; // Periodo Final
+let htmlTypeChart = 'line'; // Tipo de gráfico
 const indicadorObj = getListaIndicadores(htmlIndicador);
 console.log(`Indicador: ${indicadorObj[0].name}`);
 const paisObj = getListaPaises(htmlPais);
@@ -26,7 +32,7 @@ async function chartCepalStat() {
   await getCepalStatData(url, htmlPeriodoInicio, htmlPeriodoFinal);
   const ctx = document.getElementById('geiChart');
   const myChart = new Chart(ctx, {
-      type: 'line',
+      type: htmlTypeChart,
       data: {
           labels: arrayPeriodos,
           datasets: [{
