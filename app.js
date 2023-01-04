@@ -9,7 +9,8 @@ const paisArray = getListaPaises('todos');
 console.log(`Lista de Paises: ${paisArray}`);
 // Para armar lista desplegable de paise en el HTML
 // ...
-let htmlPais = '216'; // Pais
+let nro = '242';
+let htmlPais = nro; // Pais
 let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
 const indicadorObj = getListaIndicadores(htmlIndicador); // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
 const paisObj = getListaPaises(htmlPais); // Chile
