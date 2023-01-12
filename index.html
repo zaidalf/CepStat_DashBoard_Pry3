@@ -149,67 +149,165 @@
         </div>
     </div>
     <br>
-        <div>
-            <div class="container" id="grafico" style="padding: 1rem;">
-                <div class="row">
-                    <div class="col-sm-4 rounded" style="background-color:#37C9EF ;">
-                        <div class="text-sm-center" style="padding-top: 3rem;">
-                           <h4 class="fw-bold text-light" style="padding-bottom: 2rem;">Selecciona los indicadores que corresponden a continuación</h4> 
-                           <div>
-                                <div class="paises" style="padding: 2rem;">
-                                    <p class="fw-bold text-light" style="padding-top: 2rem;">- Selecciona el país -</p>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Lista de países</option>
-                                        <option value="1" id="">Chile</option>
-                                        <option value="2">Uruguay</option>
-                                        <option value="3">Paraguay</option>
-                                    </select>
-                                </div>
-                                <br>
-                                <p class="fw-bold text-light" style="padding-top: 2rem;">- Selecciona el período de tiempo -</p>
-                                <label for="customRange2" class="form-label fw-light text-light">Tiempo en Años</label>
-                                    <input type="range" class="form-range" min="1990" max="2022" id="customRange2" style="padding-top: 2rem;">
-                                <br>
-                                <p class="fw-bold text-light" style="padding-top: 3rem;">- Selecciona el tipo de gráfico -</p>
-                                <div class="graficar" style="padding-right: 2rem; padding-left: 2rem;">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                        <label class="form-check-label fw-light text-light" for="flexRadioDefault1">
-                                            Gráfico de líneas
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                                        <label class="form-check-label fw-light text-light" for="flexRadioDefault2">
-                                            Gráfico de barras
-                                        </label>
-                                    </div>
-                                </div>
-                                  <br>
-                                  <div style="padding: 2rem;">
-                                  <button type="button" class="btn btn-primary">Graficar</button>
-                                  </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-8">
-                        <div class="text-sm-center rounded" style="background-color:#F9F9F9; padding: 2rem; width: 42rem; height: 35rem;">
-                            <h5>Emisiones de CO<sub>2</sub> por país latinoamericano respecto al total global</h5>
-                            <div>
-                                <canvas id="geiChart" width="35rem" height="28rem"></canvas>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="text-sm-center rounded" style="background-color:#68a694; padding: 3rem;">
-                            <p class="fw-light text-light justify-content-center">Sin embargo, desde que comenzó la Revolución Industrial, las actividades del ser humano han ido incorporado enormes cantidades de CO<sub>2</sub> y otros gases a la atmósfera, las que aumentan cada año, provocando un complejo desequilibrio ambiental. El ciclo natural del carbono no alcanza a disminuir las enormes cantidades de CO<sub>2</sub> atmosférico, acumulando estos gases en la atmósfera, los cuales a su vez atrapan y mantienen el calor, produciendo así el conocido calentamiento global.</p>
-                        </div>
+    <div>
+      <div class="container" id="grafico" style="padding: 1rem;">
+          <div class="row">
+            <div class="col-sm-4 rounded" style="background-color:#37C9EF ;">
+              <div class="text-sm-center" style="padding-top: 3rem;">
+                <h4 class="fw-bold text-light" style="padding-bottom: 2rem;">Selecciona los indicadores que corresponden a continuación</h4> 
+              </div>
+              <div class="paises text-center" style="padding: 1rem;">
+                <p class="fw-bold text-light" style="padding-left: 2rem; padding-right: 2rem;">- Selecciona el país -</p>
+                  <div style="padding: 2rem;">
+                    <select class="form-select text-center" aria-label="Default select example" id="htmlPais" onchange="updateChart()" style="padding-left: 3rem; padding-right: 3rem;">
+                      <option selected id="htmlPais">Lista de países</option>
+                        <option value="0">Argentina</option>
+                        <option value="1">Bolivia</option>
+                        <option value="2">Brasil</option>
+                        <option value="3">Chile</option>
+                        <option value="4">Colombia</option>
+                        <option value="5">Ecuador</option>
+                        <option value="6">México</option>
+                        <option value="7">Paraguay</option>
+                        <option value="8">Perú</option>
+                        <option value="9">Uruguay</option>
+                        <option value="10">Venezuela</option>
+                    </select>
+                  </div>
+              </div>
+              <br>
+              <div id="htmlPeriodoInicio" class="text-center" style="padding-left: 2rem; padding-right: 2rem">
+              <p class="fw-bold text-light">- Selecciona el período de tiempo -</p>
+              <label for="customRange2" class="form-label fw-light text-light">Tiempo en Años</label>
+                <div class="periodoInicial" style="padding: 2rem;">
+                  <select class="form-select text-center" aria-label="Default select example" id="htmlPeriodoInicio" style="padding-left: 3rem; padding-right: 3rem;">
+                    <option selected>Desde</option>
+                    <option value="1">1990</option>
+                    <option value="2">1991</option>
+                    <option value="3">1992</option>
+                    <option value="4">1993</option>
+                    <option value="5">1994</option>
+                    <option value="6">1995</option>
+                    <option value="7">1996</option>
+                    <option value="8">1997</option>
+                    <option value="9">1998</option>
+                    <option value="10">1999</option>
+                    <option value="11">2000</option>
+                    <option value="12">2001</option>
+                    <option value="13">2002</option>
+                    <option value="14">2003</option>
+                    <option value="15">2004</option>
+                    <option value="16">2005</option>
+                    <option value="17">2006</option>
+                    <option value="18">2007</option>
+                    <option value="19">2008</option>
+                    <option value="20">2009</option>
+                    <option value="21">2010</option>
+                    <option value="22">2011</option>
+                    <option value="23">2012</option>
+                    <option value="24">2013</option>
+                    <option value="25">2014</option>
+                    <option value="26">2015</option>
+                    <option value="27">2016</option>
+                    <option value="28">2017</option>
+                    <option value="29">2018</option>
+                    <option value="30">2019</option>
+                  </select>                      
+                </div>
+              </div>
+              <br>
+              <div id="htmlPeriodoFinal" class="periodoFinal" style="padding-left: 2rem; padding-right: 2rem">
+                  <select class="form-select text-center" aria-label="Default select example" id="htmlPeriodoFinal" style="padding-left: 3rem; padding-right: 3rem;">
+                      <option selected>Hasta</option>
+                        <option value="1">1990</option>
+                        <option value="2">1991</option>
+                        <option value="3">1992</option>
+                        <option value="4">1993</option>
+                        <option value="5">1994</option>
+                        <option value="6">1995</option>
+                        <option value="7">1996</option>
+                        <option value="8">1997</option>
+                        <option value="9">1998</option>
+                        <option value="10">1999</option>
+                        <option value="11">2000</option>
+                        <option value="12">2001</option>
+                        <option value="13">2002</option>
+                        <option value="14">2003</option>
+                        <option value="15">2004</option>
+                        <option value="16">2005</option>
+                        <option value="17">2006</option>
+                        <option value="18">2007</option>
+                        <option value="19">2008</option>
+                        <option value="20">2009</option>
+                        <option value="21">2010</option>
+                        <option value="22">2011</option>
+                        <option value="23">2012</option>
+                        <option value="24">2013</option>
+                        <option value="25">2014</option>
+                        <option value="26">2015</option>
+                        <option value="27">2016</option>
+                        <option value="28">2017</option>
+                        <option value="29">2018</option>
+                        <option value="30">2019</option>
+                  </select>                                     
+              </div>
+              <br>
+              <p class="fw-bold text-light text-center" style="padding-top: 3rem;">- Selecciona el tipo de gráfico -</p>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label fw-light text-light" for="flexRadioDefault1">
+                      Gráfico de líneas
+                  </label>
+              </div>
+              <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <label class="form-check-label fw-light text-light" for="flexRadioDefault2">
+                      Gráfico de barras
+                  </label>
+              </div>
+              <br>
+              <div class="text-center" style="padding: 2rem;">
+                  <button type="button" class="btn btn-primary">Graficar</button>
+              </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="text-sm-center rounded" style="background-color:#F9F9F9; padding: 2rem; width: 40rem; height: 38rem;">
+                  <h5>Emisiones de CO<sub>2</sub> por país latinoamericano respecto al total global</h5>
+                    <div>
+                      <canvas id="geiChart" width="35rem" height="28rem"></canvas>
                     </div>
                 </div>
-            </div>
+                <br>
+                <div class="text-sm-center rounded" style="background-color:#68a694; padding: 1.5rem; padding-bottom: 1rem; width: 40rem; height: 17rem;">
+                  <p class="fw-light text-light justify-content-center">Este indicador presenta la proporción de las emisiones de dióxido de carbono (CO<sub>2</sub>) generadas por la quema de combustibles fósiles y la producción de cemento de la región con respecto al total de las emisiones globales. Se exluye el sector de cambio de uso de suelo y silvicultura El CO<sub>2</sub> es un gas incoloro, inodoro y no venenoso que se desprende de la combustión de combustibles fósiles y normalmente forma parte del aire ambiente. Se considera el principal gas de efecto invernadero, al contribuir a los cambios del clima. También se denomina anhídrido carbónico. Emisiones: liberación de gases de efecto invernadero y/o de sus precursores en la atmósfera, en una zona y por un período determinado.</p>
+                </div>
+          </div>
+      </div>
+    </div>
     </main>
     <footer>
-        <p class="bg-primary">Datos contacto</p>
-    </footer>
+      <div style="background-color:#2C92D5; padding-top: 2rem">
+      <div class="container" id="inicio">
+          <div class="row">
+              <div class="col-sm-4">
+                  <img src="./assets/images/logo1.png" alt="logo" width="150px" height="150px">
+              </div>
+              <div class="col-sm-4 justify-content-center text-light">
+                  <p class="fw-bold">Acerca de Nosotros</p>
+                  <p class="fw-lignter">Síguenos en nuestras redes</p>
+                  <p class="fw-lignter">Instagram: @medioambiente</p>
+              </div>
+              <div class="col-sm-4 text-center text-light">
+                  <p class="fw-bold">Suscríbete a nuestro boletín</p>
+                  <div class="text-center">
+                      <button type="button" class="btn btn-secondary text-center" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Suscribirme</button>
+                  </div>
+              </div>
+          </div>
+          <br>
+      </div>
+      </div>
+</footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./app.js" type="module"></script>

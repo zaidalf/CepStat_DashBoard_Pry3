@@ -4,11 +4,25 @@ import {getListaPaises} from './funciones/getListaPaises.js';
 import {getCepalStatData, arrayPeriodos, arrayValores} from './funciones/getCepalStatData.js';
 // ...
 // Captura de datos desde html - Diana
+//const $select = document.getElementById('htmlPais');
+//const opcionPais = () => {
+//  console.log("cambio");
+//};
+
+//$select.addEventListener("change", opcionCambiada);
+
+//const agregar = () => {
+//  const option = document.createElement('option');
+//  const valor = new Date ().myChart();
+//  option.value = valor;
+//  option.text = valor; 
+//  $select.appendChild('option');
+//};
 // . Se debe obtener la variable htmlPais con el nombre del pais
 // . Se debe obtener el periodo del gráfico en un rango de fechas entre 1990 y 2019 
 // . Variables periodoInicio y periodoFinal
 // ...
-let htmlPais = 'Brasil'; // Pais
+let htmlPais = 'Argentina'; // Pais
 let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
 let htmlPeriodoInicio = '2005'; // Periodo Inicio
 let htmlPeriodoFinal = '2019'; // Periodo Final
@@ -42,7 +56,7 @@ async function chartCepalStat() {
               suggestedMin: 0.0,
               suggestedMax: 1.0,
             }
-            
+          
               // yAxes: [{
               //     display: true,
               //     ticks: {
