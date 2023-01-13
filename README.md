@@ -1,0 +1,5 @@
+Nuestra página web tiene el objetivo de informar y educar respecto a las emisiones de Dióxido de Carbono.
+En primer lugar entregamos información respecto a lo que es el CO2. El impacto negativo de las enormes emisiones de CO2 en el medio ambiente y cuáles son los países que concentran mayor producción de este gas.
+Extraemos información de la Api de la Comisión Económica para América Latina y el Caribe (CEPAL), el cual es el organismo dependiente de la Organización de las Naciones Unidas responsable de promover el desarrollo económico y social de la región.​
+Finalmente deseamos concientizar respecto a la grave situación ambiental a la que nos vemos enfrentados y generar cambios significativos, tanto en la disminución de emisiones a nivel industrial, como a nivel personal y social.
+El link de nuestro sitio es: https://github.com/zaidalf/CepStat_DashBoard_Pry3.git
