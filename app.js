@@ -1,19 +1,40 @@
 // Modulo principal CepStat - Fuente: Cepal
-console.log('CepalStat Paso0');
 import {getListaIndicadores} from './funciones/getListaIndicadores.js';
 import {getListaPaises} from './funciones/getListaPaises.js';
 import {getCepalStatData, arrayPeriodos, arrayValores} from './funciones/getCepalStatData.js';
-console.log('CepalStat Paso1');
 // ...
-const paisArray = getListaPaises('todos');
-console.log(`Lista de Paises: ${paisArray}`);
-// Para armar lista desplegable de paise en el HTML
+// Captura de datos desde html - Diana
+//const $select = document.getElementById('htmlPais');
+//const opcionPais = () => {
+//  console.log("cambio");
+//};
+
+//$select.addEventListener("change", opcionCambiada);
+
+//const agregar = () => {
+//  const option = document.createElement('option');
+//  const valor = new Date ().myChart();
+//  option.value = valor;
+//  option.text = valor; 
+//  $select.appendChild('option');
+//};
+// . Se debe obtener la variable htmlPais con el nombre del pais
+// . Se debe obtener el periodo del gráfico en un rango de fechas entre 1990 y 2019 
+// . Variables periodoInicio y periodoFinal
 // ...
+<<<<<<< HEAD
 let nro = '242';
 let htmlPais = nro; // Pais
+=======
+let htmlPais = 'Argentina'; // Pais
+>>>>>>> main
 let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
-const indicadorObj = getListaIndicadores(htmlIndicador); // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
-const paisObj = getListaPaises(htmlPais); // Chile
+let htmlPeriodoInicio = '2005'; // Periodo Inicio
+let htmlPeriodoFinal = '2019'; // Periodo Final
+const indicadorObj = getListaIndicadores(htmlIndicador);
+console.log(`Indicador: ${indicadorObj[0].name}`);
+const paisObj = getListaPaises(htmlPais);
+console.log(`Pais: ${paisObj[0].name} - ${paisObj[0].id}`);
 let url = indicadorObj[0].urlBase;
 url += `members= ${paisObj[0].id}`;
 url += indicadorObj[0].urlDim1;
@@ -21,7 +42,7 @@ url += indicadorObj[0].urlSufj;
 console.log(`URL: ${url}`);
 // ...
 async function chartCepalStat() {
-  await getCepalStatData(url);
+  await getCepalStatData(url, htmlPeriodoInicio, htmlPeriodoFinal);
   const ctx = document.getElementById('geiChart');
   const myChart = new Chart(ctx, {
       type: 'line',
@@ -38,9 +59,9 @@ async function chartCepalStat() {
           scales: {
             y: {
               suggestedMin: 0.0,
-              suggestedMax: 2.0,
+              suggestedMax: 1.0,
             }
-            
+          
               // yAxes: [{
               //     display: true,
               //     ticks: {

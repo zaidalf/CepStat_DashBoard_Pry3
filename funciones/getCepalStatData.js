@@ -2,19 +2,22 @@
 // ...
 let arrayPeriodos = [], arrayValores = [];
 // ...
-async function getCepalStatData(getUrl) {
+async function getCepalStatData(getUrl, periodoInicio, periodoFinal) {
   const response = await fetch(getUrl);
   const data = await response.json();
 
   const valores = data.body.data.map((item) => item.value);
   const periodos = data.body.dimensions[1].members.map((item) => item.order);
   
-  arrayValores  = valores;
-  for (let i = 0; i < arrayValores.length; i++) {
-    arrayValores[i] = parseFloat(arrayValores[i]);
-    console.log(`Indice: ${i} Valor: ${arrayValores[i]}`)
+  let j = 0;
+  for (let i = 0; i < periodos.length; i++) {
+    if (periodos[i] >= periodoInicio && periodos[i] <= periodoFinal)
+    {
+      arrayPeriodos[j] = periodos[i];
+      arrayValores[j] = parseFloat(valores[i]);
+      j = j + 1;
+    }
   }
-  arrayPeriodos = periodos;
-
 }
+
 export {getCepalStatData, arrayPeriodos, arrayValores};
