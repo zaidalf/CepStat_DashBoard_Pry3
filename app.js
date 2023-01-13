@@ -48,23 +48,6 @@ async function chartCepalStat() {
               suggestedMin: 0.0,
               suggestedMax: 1.0,
             }
-            
-              // yAxes: [{
-              //     display: true,
-              //     ticks: {
-              //         beginAtZero: true,
-              //         min: 0,
-              //         max: 2,
-              //         stepSize: 0.1,
-              //     },
-              //     scaleLabel: {
-              //       display: true,
-              //       labelString: 'Porcentaje',
-              //     },
-              // }],
-              // xAxes: [{
-              //   scaleLabel: {},
-              // }],
           },
       }
   });
