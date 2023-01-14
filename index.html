@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard CO<sub>2</sub></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+  <body>
     <header>
         <nav class="navbar bg-light fixed-top" style="/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#68a694+0,c3cb32+100 */
         background: #68a694; /* Old browsers */
@@ -84,7 +83,7 @@
                 </div>
             </div>
         </div>
-<br>
+        <br>
         <div class="container" id="inicio" style="padding-right: 2rem;">
             <div class="row">
                 <div class="col-sm-6">
@@ -159,116 +158,29 @@
               <div class="paises text-center" style="padding: 1rem;">
                 <p class="fw-bold text-light" style="padding-left: 2rem; padding-right: 2rem;">- Selecciona el país -</p>
                   <div style="padding: 2rem;">
-                    <select class="form-select text-center" aria-label="Default select example" id="htmlPais" onchange="updateChart()" style="padding-left: 3rem; padding-right: 3rem;">
+                    <select class="form-select text-center" aria-label="Default select example" id="htmlPais" style="padding-left: 3rem; padding-right: 3rem;">
                       <option selected id="htmlPais">Lista de países</option>
-                        <option value="0">Argentina</option>
-                        <option value="1">Bolivia</option>
-                        <option value="2">Brasil</option>
-                        <option value="3">Chile</option>
-                        <option value="4">Colombia</option>
-                        <option value="5">Ecuador</option>
-                        <option value="6">México</option>
-                        <option value="7">Paraguay</option>
-                        <option value="8">Perú</option>
-                        <option value="9">Uruguay</option>
-                        <option value="10">Venezuela</option>
+                        <option value="216">Argentina</option>
+                        <option value="221">Bolivia</option>
+                        <option value="222">Brasil</option>
+                        <option value="224">Chile</option>
+                        <option value="225">Colombia</option>
+                        <option value="229">Ecuador</option>
+                        <option value="233">México</option>
+                        <option value="242">Paraguay</option>
+                        <option value="243">Perú</option>
+                        <option value="258">Uruguay</option>
+                        <option value="259">Venezuela</option>
                     </select>
                   </div>
               </div>
               <br>
-              <div id="htmlPeriodoInicio" class="text-center" style="padding-left: 2rem; padding-right: 2rem">
-              <p class="fw-bold text-light">- Selecciona el período de tiempo -</p>
-              <label for="customRange2" class="form-label fw-light text-light">Tiempo en Años</label>
-                <div class="periodoInicial" style="padding: 2rem;">
-                  <select class="form-select text-center" aria-label="Default select example" id="htmlPeriodoInicio" style="padding-left: 3rem; padding-right: 3rem;">
-                    <option selected>Desde</option>
-                    <option value="1">1990</option>
-                    <option value="2">1991</option>
-                    <option value="3">1992</option>
-                    <option value="4">1993</option>
-                    <option value="5">1994</option>
-                    <option value="6">1995</option>
-                    <option value="7">1996</option>
-                    <option value="8">1997</option>
-                    <option value="9">1998</option>
-                    <option value="10">1999</option>
-                    <option value="11">2000</option>
-                    <option value="12">2001</option>
-                    <option value="13">2002</option>
-                    <option value="14">2003</option>
-                    <option value="15">2004</option>
-                    <option value="16">2005</option>
-                    <option value="17">2006</option>
-                    <option value="18">2007</option>
-                    <option value="19">2008</option>
-                    <option value="20">2009</option>
-                    <option value="21">2010</option>
-                    <option value="22">2011</option>
-                    <option value="23">2012</option>
-                    <option value="24">2013</option>
-                    <option value="25">2014</option>
-                    <option value="26">2015</option>
-                    <option value="27">2016</option>
-                    <option value="28">2017</option>
-                    <option value="29">2018</option>
-                    <option value="30">2019</option>
-                  </select>                      
-                </div>
-              </div>
               <br>
-              <div id="htmlPeriodoFinal" class="periodoFinal" style="padding-left: 2rem; padding-right: 2rem">
-                  <select class="form-select text-center" aria-label="Default select example" id="htmlPeriodoFinal" style="padding-left: 3rem; padding-right: 3rem;">
-                      <option selected>Hasta</option>
-                        <option value="1">1990</option>
-                        <option value="2">1991</option>
-                        <option value="3">1992</option>
-                        <option value="4">1993</option>
-                        <option value="5">1994</option>
-                        <option value="6">1995</option>
-                        <option value="7">1996</option>
-                        <option value="8">1997</option>
-                        <option value="9">1998</option>
-                        <option value="10">1999</option>
-                        <option value="11">2000</option>
-                        <option value="12">2001</option>
-                        <option value="13">2002</option>
-                        <option value="14">2003</option>
-                        <option value="15">2004</option>
-                        <option value="16">2005</option>
-                        <option value="17">2006</option>
-                        <option value="18">2007</option>
-                        <option value="19">2008</option>
-                        <option value="20">2009</option>
-                        <option value="21">2010</option>
-                        <option value="22">2011</option>
-                        <option value="23">2012</option>
-                        <option value="24">2013</option>
-                        <option value="25">2014</option>
-                        <option value="26">2015</option>
-                        <option value="27">2016</option>
-                        <option value="28">2017</option>
-                        <option value="29">2018</option>
-                        <option value="30">2019</option>
-                  </select>                                     
-              </div>
               <br>
-              <p class="fw-bold text-light text-center" style="padding-top: 3rem;">- Selecciona el tipo de gráfico -</p>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                  <label class="form-check-label fw-light text-light" for="flexRadioDefault1">
-                      Gráfico de líneas
-                  </label>
-              </div>
-              <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <label class="form-check-label fw-light text-light" for="flexRadioDefault2">
-                      Gráfico de barras
-                  </label>
-              </div>
               <br>
-              <div class="text-center" style="padding: 2rem;">
-                  <button type="button" class="btn btn-primary">Graficar</button>
-              </div>
+              <!-- <div class="text-center" style="padding: 2rem;">  
+                  <button type="button" class="btn btn-primary btnAction" id="verGrafico">Ver Gráfico</button>
+              </div> -->
             </div>
             <div class="col-sm-8">
                 <div class="text-sm-center rounded" style="background-color:#F9F9F9; padding: 2rem; width: 40rem; height: 38rem;">
@@ -307,7 +219,7 @@
           <br>
       </div>
       </div>
-</footer>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./app.js" type="module"></script>

@@ -1,64 +1,66 @@
 // Modulo principal CepStat - Fuente: Cepal
+console.log("CepStat - Fuente: Cepal");
 import {getListaIndicadores} from './funciones/getListaIndicadores.js';
 import {getListaPaises} from './funciones/getListaPaises.js';
 import {getCepalStatData, arrayPeriodos, arrayValores} from './funciones/getCepalStatData.js';
 // ...
-// Captura de datos desde html - Diana
-//const $select = document.getElementById('htmlPais');
-//const opcionPais = () => {
-//  console.log("cambio");
-//};
-
-//$select.addEventListener("change", opcionCambiada);
-
-//const agregar = () => {
-//  const option = document.createElement('option');
-//  const valor = new Date ().myChart();
-//  option.value = valor;
-//  option.text = valor; 
-//  $select.appendChild('option');
-//};
-// . Se debe obtener la variable htmlPais con el nombre del pais
-// . let htmlPais = ..........; // Pais
-// . Se debe obtener el periodo del gráfico en un rango de fechas entre 1990 y 2019 
-// . Variables periodoInicio y periodoFinal
-// . let htmlPeriodoInicio = .....; // Periodo Inicio
-// . let htmlPeriodoFinal = .....; // Periodo Final
-// . Tipo de grafico
-// . 
-// ...
-<<<<<<< HEAD
-let nro = '242';
-let htmlPais = nro; // Pais
-=======
-let htmlPais = 'Argentina'; // Pais
->>>>>>> main
-let htmlIndicador = '3159'; // Proporción de las emisiones de dióxido de carbono (CO2) con respecto al total global
-let htmlPeriodoInicio = '2005'; // Periodo Inicio
-let htmlPeriodoFinal = '2019'; // Periodo Final
-let htmlTypeChart = 'line'; // Tipo de gráfico
+// Inicio de la aplicación
+console.log("Inicio de la aplicación");
+var myChart;
+const htmlIndicador = '3159';
+let htmlPais = '216';
+const htmlPeriodoInicio = '1990';
+const htmlPeriodoFinal = '2019';  
+const htmlTypeChart = 'line';
 const indicadorObj = getListaIndicadores(htmlIndicador);
-console.log(`Indicador: ${indicadorObj[0].name}`);
-const paisObj = getListaPaises(htmlPais);
-console.log(`Pais: ${paisObj[0].name} - ${paisObj[0].id}`);
-let url = indicadorObj[0].urlBase;
-url += `members= ${paisObj[0].id}`;
-url += indicadorObj[0].urlDim1;
-url += indicadorObj[0].urlSufj;
+console.log(indicadorObj);
+let paisObj = await getListaPaises(htmlPais);
+console.log(paisObj);
+let url = indicadorObj.urlBase;
+    url += `members= ${paisObj.id}`;
+    url += indicadorObj.urlDim1;
+    url += indicadorObj.urlSufj;
 console.log(`URL: ${url}`);
+await getCepalStatData(url, htmlPeriodoInicio, htmlPeriodoFinal);
+  console.log(`Array Periodos: ${arrayPeriodos}`);
+  console.log(`Array Valores: ${arrayValores}`);
+chartCepalStat();
 // ...
-async function chartCepalStat() {
+// Captura evento desde HTML
+let _htmlPais = document.getElementById('htmlPais');
+_htmlPais.addEventListener('change', async() => {
+  let htmlPaisValue = document.getElementById('htmlPais').value;
+  paisObj = await getListaPaises(htmlPaisValue);
+  console.log(paisObj);
+  let url = indicadorObj.urlBase;
+    url += `members= ${paisObj.id}`;
+    url += indicadorObj.urlDim1;
+    url += indicadorObj.urlSufj;
+  console.log(`URL desde HTML: ${url}`);
+  myChart.destroy();
   await getCepalStatData(url, htmlPeriodoInicio, htmlPeriodoFinal);
+  console.log(`Array Periodos: ${arrayPeriodos}`);
+  console.log(`Array Valores: ${arrayValores}`);
+  chartCepalStat();
+});
+// ...
+// Funcion para obtener los datos del indicador & Graficar
+async function getCepalStat() {
+  await getCepalStatData(url, htmlPeriodoInicio, htmlPeriodoFinal);
+  console.log(`Array Periodos: ${arrayPeriodos}`);
+  console.log(`Array Valores: ${arrayValores}`);
+}
+async function chartCepalStat() {
   const ctx = document.getElementById('geiChart');
-  const myChart = new Chart(ctx, {
+  myChart = new Chart(ctx, {
       type: htmlTypeChart,
       data: {
           labels: arrayPeriodos,
           datasets: [{
-            label: `${indicadorObj[0].name} - ${paisObj[0].name}`,
+            label: `${indicadorObj.name} - ${paisObj.name}`,
             data: arrayValores,
-            backgroundColor: paisObj[0].bgColor,
-            borderColor: paisObj[0].bdColor,
+            backgroundColor: paisObj.bgColor,
+            borderColor: paisObj.bdColor,
           }],
       },
       options: {
@@ -67,27 +69,9 @@ async function chartCepalStat() {
               suggestedMin: 0.0,
               suggestedMax: 1.0,
             }
-          
-              // yAxes: [{
-              //     display: true,
-              //     ticks: {
-              //         beginAtZero: true,
-              //         min: 0,
-              //         max: 2,
-              //         stepSize: 0.1,
-              //     },
-              //     scaleLabel: {
-              //       display: true,
-              //       labelString: 'Porcentaje',
-              //     },
-              // }],
-              // xAxes: [{
-              //   scaleLabel: {},
-              // }],
           },
       }
   });
 }
-chartCepalStat();
 // ...
 

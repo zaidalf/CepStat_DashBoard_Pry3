@@ -1,6 +1,7 @@
 // Descripción: Función que devuelve un array con los países de la región de América Latina y el Caribe - Fuente: Cepal
 // ...
-function getListaPaises(seleccion) {
+
+async function getListaPaises(seleccion) {
   const paisesArray = [
     {id: '216', name: 'Argentina', indc: 'ARG', bgColor: 'rgba(152, 0, 77)', bdColor: 'rgba(255, 128, 191)'},
     {id: '221', name: 'Bolivia', indc: 'BOL', bgColor: 'rgba(102,77, 0)', bdColor: 'rgba(204, 153, 0)'},
@@ -14,12 +15,8 @@ function getListaPaises(seleccion) {
     {id: '258', name: 'Uruguay', indc: 'URY', bgColor: 'rgba(102, 153, 153)', bdColor: 'rgba(61, 92, 92)'},
     {id: '259', name: 'Venezuela', indc: 'VEN', bgColor: 'rgba(255, 51, 0)', bdColor: 'rgba(128, 26, 0)'},
   ];
-  if (seleccion === 'todos') {
-      let paises = paisesArray;
-      return paises;
-  } else {
-      let paises = paisesArray.filter((pais) => pais.name === seleccion);
-      return paises;
-  }
-} 
+  const filterPaises = paisesArray.filter(pais => pais.id === seleccion)
+  console.log(`Func_getListaPaises: ${filterPaises[0]}`);
+  return filterPaises[0];
+};
 export {getListaPaises};

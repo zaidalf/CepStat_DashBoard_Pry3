@@ -43,12 +43,8 @@ function getListaIndicadores(seleccion) {
     urlDim1: ',29160,29161,29162,29163,29164,29165,29166,29167,29168,29169,29170,29171,29172,29173,29174,29175,29176,29177,29178,29179,29180,29181,29182,29183,29184,29185,29186,29187,29188,29189,84313',
     urlSufj: '&lang=es&format=json&in=1&app=dashboard'}
   ];
-  if (seleccion === 'todos') {
-      let indicadores = indicadoresArray;
-      return indicadores;
-  } else {
-      let indicadores = indicadoresArray.filter(indicador => indicador.id === seleccion);
-      return indicadores;
-  }
+  const filterIndicadores = indicadoresArray.filter(pais => pais.id === seleccion)
+  console.log(`Func_getListaIndicadores: ${filterIndicadores[0]}`);
+  return filterIndicadores[0]
 }
 export {getListaIndicadores};
